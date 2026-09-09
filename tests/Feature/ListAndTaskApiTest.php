@@ -307,4 +307,3 @@ class ListAndTaskApiTest extends TestCase
             ->assertJsonValidationErrors(['priority']);
     }
 }
-

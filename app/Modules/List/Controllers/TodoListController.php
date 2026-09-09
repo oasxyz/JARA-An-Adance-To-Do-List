@@ -73,4 +73,3 @@ class TodoListController extends Controller
         ]);
     }
 }
-

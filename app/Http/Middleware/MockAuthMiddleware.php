@@ -27,7 +27,7 @@ class MockAuthMiddleware
             $user = User::find($userId);
 
             if (! $user) {
-                $user = new User();
+                $user = new User;
                 $user->id = $userId;
                 $user->name = 'Mock User '.$userId;
                 $user->email = 'mock'.$userId.'@example.com';
@@ -41,4 +41,3 @@ class MockAuthMiddleware
         return $next($request);
     }
 }
-

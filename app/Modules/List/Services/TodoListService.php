@@ -15,7 +15,7 @@ class TodoListService
      */
     public function getUserLists(int $userId): Collection
     {
-        return TodoList::where('owner_id', $userId)->get();
+        return TodoList::where('owner_id', $userId)->withCount('tasks')->get();
     }
 
     /**
@@ -69,4 +69,3 @@ class TodoListService
         $list->delete();
     }
 }
-

@@ -3,6 +3,7 @@
 namespace App\Modules\Task\Requests;
 
 use App\Modules\Task\Enums\TaskStatus;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
 
@@ -19,7 +20,7 @@ class UpdateTaskStatusRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -28,4 +29,3 @@ class UpdateTaskStatusRequest extends FormRequest
         ];
     }
 }
-

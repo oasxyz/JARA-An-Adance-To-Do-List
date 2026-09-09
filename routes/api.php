@@ -28,4 +28,3 @@ Route::middleware(['mock.auth'])->group(function () {
     Route::patch('/tasks/{id}/status', [TaskController::class, 'updateStatus'])->name('tasks.status');
     Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
-

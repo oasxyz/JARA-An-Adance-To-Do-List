@@ -8,7 +8,6 @@ use App\Modules\Task\Requests\UpdateTaskRequest;
 use App\Modules\Task\Requests\UpdateTaskStatusRequest;
 use App\Modules\Task\Services\TaskService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -85,4 +84,3 @@ class TaskController extends Controller
         ]);
     }
 }
-
