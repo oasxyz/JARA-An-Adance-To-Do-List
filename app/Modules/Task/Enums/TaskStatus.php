@@ -7,4 +7,3 @@ enum TaskStatus: string
     case Done = 'done';
     case NotDone = 'not done';
 }
-

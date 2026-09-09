@@ -202,4 +202,3 @@ class ListAndTaskModuleTest extends TestCase
         $this->assertNull($task->assignee);
     }
 }
-

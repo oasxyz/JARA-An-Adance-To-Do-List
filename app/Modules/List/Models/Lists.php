@@ -12,4 +12,3 @@ class Lists extends TodoList
 {
     // Inherits all table configuration, attributes, and relationships from TodoList
 }
-

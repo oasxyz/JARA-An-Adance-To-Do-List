@@ -26,10 +26,13 @@ class Task extends Model
     use HasFactory;
 
     public const PRIORITY_LOW = 'Low';
+
     public const PRIORITY_MEDIUM = 'Medium';
+
     public const PRIORITY_HIGH = 'High';
 
     public const STATUS_DONE = 'done';
+
     public const STATUS_NOT_DONE = 'not done';
 
     /**
@@ -119,7 +122,6 @@ class Task extends Model
      * Scope a query to filter by priority.
      *
      * @param  Builder<$this>  $query
-     * @param  TaskPriority|string  $priority
      * @return Builder<$this>
      */
     public function scopeByPriority(Builder $query, TaskPriority|string $priority): Builder
@@ -157,4 +159,3 @@ class Task extends Model
         return $this->save();
     }
 }
-

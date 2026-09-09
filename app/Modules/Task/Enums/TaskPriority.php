@@ -8,4 +8,3 @@ enum TaskPriority: string
     case Medium = 'Medium';
     case High = 'High';
 }
-
