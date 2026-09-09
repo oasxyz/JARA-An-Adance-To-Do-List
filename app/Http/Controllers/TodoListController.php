@@ -52,6 +52,16 @@ class TodoListController extends Controller
             abort(403, 'Akses ditolak. Anda bukan pemilik ataupun anggota dari list ini.');
         }
 
+        // Daftar partisipan (Pemilik + Anggota) untuk opsi assignee tugas
+        $participants = $list->allParticipants();
+
+        // Daftar tugas dalam list diurutkan dari yang belum selesai, deadline terdekat
+        $tasks = $list->tasks()
+            ->with(['assignee', 'creator'])
+            ->orderByRaw("CASE WHEN status = 'not done' THEN 1 WHEN status = 'done' THEN 2 ELSE 3 END")
+            ->orderBy('deadline', 'asc')
+            ->get();
+
         // Daftar undangan jika user adalah pemilik
         $invitations = $list->isOwner($userId)
             ? $list->invitations()->with('inviter')->latest()->get()
@@ -59,7 +69,7 @@ class TodoListController extends Controller
 
         $isOwner = $list->isOwner($userId);
 
-        return view('lists.show', compact('list', 'invitations', 'isOwner'));
+        return view('lists.show', compact('list', 'tasks', 'participants', 'invitations', 'isOwner'));
     }
 
     public function destroy(TodoList $list)

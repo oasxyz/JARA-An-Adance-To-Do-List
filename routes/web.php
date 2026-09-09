@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoListController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/lists', [TodoListController::class, 'store'])->name('lists.store');
     Route::get('/lists/{list}', [TodoListController::class, 'show'])->name('lists.show');
     Route::delete('/lists/{list}', [TodoListController::class, 'destroy'])->name('lists.destroy');
+
+    // Task Collaboration (FR-03, FR-04, FR-05, FR-06, FR-09)
+    Route::post('/lists/{list}/tasks', [TaskController::class, 'store'])->name('tasks.store');
+    Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::patch('/tasks/{task}/status', [TaskController::class, 'updateStatus'])->name('tasks.update_status');
+    Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
     // Invitation System (FR-07, FR-08)
     Route::post('/lists/{list}/invitations', [InvitationController::class, 'store'])->name('invitations.store');
