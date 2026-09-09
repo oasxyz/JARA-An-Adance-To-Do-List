@@ -30,6 +30,19 @@ class TodoListController extends Controller
     }
 
     /**
+     * Display the specified list.
+     */
+    public function show(int $id): JsonResponse
+    {
+        $list = $this->todoListService->getListById($id);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $list,
+        ]);
+    }
+
+    /**
      * Store a newly created list in storage (FR-02).
      */
     public function store(CreateTodoListRequest $request): JsonResponse

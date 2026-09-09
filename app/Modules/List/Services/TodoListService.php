@@ -19,6 +19,14 @@ class TodoListService
     }
 
     /**
+     * Get a specific list by ID with tasks count.
+     */
+    public function getListById(int $id): TodoList
+    {
+        return TodoList::withCount('tasks')->findOrFail($id);
+    }
+
+    /**
      * Create a new list for the specified user.
      *
      * @param  array{name: string}  $data

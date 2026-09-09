@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\List\Models\TodoList;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,5 +12,7 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/lists/{id}', function ($id) {
-    return view('lists.show', ['listId' => $id]);
+    $list = TodoList::withCount('tasks')->findOrFail($id);
+
+    return view('lists.show', compact('list'));
 })->name('lists.show');

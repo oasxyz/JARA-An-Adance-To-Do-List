@@ -34,10 +34,16 @@ class DashboardViewTest extends TestCase
 
     public function test_list_detail_page_is_accessible(): void
     {
-        $response = $this->get('/lists/1');
+        $user = User::factory()->create();
+        $list = TodoList::create([
+            'name' => 'Sample List',
+            'owner_id' => $user->id,
+        ]);
+
+        $response = $this->get('/lists/'.$list->id);
 
         $response->assertStatus(200);
-        $response->assertSee('Detail List #1');
+        $response->assertSee('Sample List');
         $response->assertSee('Kembali ke Dashboard');
     }
 

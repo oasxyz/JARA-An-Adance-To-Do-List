@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['mock.auth'])->group(function () {
     // List Endpoints (FR-02)
     Route::get('/lists', [TodoListController::class, 'index'])->name('lists.index');
+    Route::get('/lists/{id}', [TodoListController::class, 'show'])->name('lists.show_api');
     Route::post('/lists', [TodoListController::class, 'store'])->name('lists.store');
     Route::put('/lists/{id}', [TodoListController::class, 'update'])->name('lists.update');
     Route::delete('/lists/{id}', [TodoListController::class, 'destroy'])->name('lists.destroy');
