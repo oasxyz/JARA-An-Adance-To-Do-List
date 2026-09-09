@@ -56,6 +56,9 @@
     </div>
     @endif
 
+    <!-- FITUR 3: PROGRESS TRACKER (FR-10) -->
+    @include('components.progress-tracker')
+
     <!-- FITUR 2: KERJA SAMA TUGAS MULTI-USER DALAM LIST (FR-03, FR-04, FR-05, FR-06, FR-09) -->
     <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-3">

@@ -52,6 +52,10 @@ class TodoListController extends Controller
             abort(403, 'Akses ditolak. Anda bukan pemilik ataupun anggota dari list ini.');
         }
 
+        // Fitur 3: Progress Tracker & 'Siapa Mengerjakan Apa' (FR-10)
+        $progress = $list->getProgressStats();
+        $workload = $list->getMembersWorkload();
+
         // Daftar partisipan (Pemilik + Anggota) untuk opsi assignee tugas
         $participants = $list->allParticipants();
 
@@ -69,7 +73,7 @@ class TodoListController extends Controller
 
         $isOwner = $list->isOwner($userId);
 
-        return view('lists.show', compact('list', 'tasks', 'participants', 'invitations', 'isOwner'));
+        return view('lists.show', compact('list', 'tasks', 'participants', 'invitations', 'isOwner', 'progress', 'workload'));
     }
 
     public function destroy(TodoList $list)
