@@ -59,9 +59,19 @@
     </main>
 
     <!-- Footer -->
+<<<<<<< HEAD
     <footer class="bg-white border-t py-4 text-center text-xs text-gray-500">
         &copy; {{ date('Y') }} JARA - Advance To-Do List Application.
     </footer>
 
 </body>
 </html>
+=======
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+        Jara Advance To-Do List &copy; {{ date('Y') }} &bull; Praktikum PPK
+    </footer>
+
+    @stack('scripts')
+</body>
+</html>
+>>>>>>> origin/feature/invitation-system
